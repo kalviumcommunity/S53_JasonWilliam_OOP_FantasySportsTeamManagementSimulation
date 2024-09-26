@@ -1,33 +1,32 @@
 package S53_JasonWilliam_OOP_FantasySportsTeamManagementSimulation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        // Create Team
+        // Create Team using new keyword
         Team team = new Team("The Warriors");
 
-        // Create Players and add them to the team
-        ArrayList<Player> playerList = new ArrayList<>(Arrays.asList(
-            new Player("John Doe", "Forward"),
-            new Player("Jason William", "Goalkeeper")
-        ));
+        // Create Players using new keyword and add them to the team
+        Player player1 = new Player("John Doe", "Forward");
+        Player player2 = new Player("Jason William", "Goalkeeper");
 
-        for (Player player : playerList) {
-            team.addPlayer(player);  // Add each player to the team
-        }
+        // Add players to the team
+        team.addPlayer(player1);  // Add first player to the team
+        team.addPlayer(player2);  // Add second player to the team
 
         // Update Player Stats
-        playerList.get(0).updateStats(20);
-        playerList.get(1).updateStats(5);
+        player1.updateStats(20);
+        player2.updateStats(5);
 
         // Display each player's information
-        for (Player player : playerList) {
-            System.out.println(player.displayInfo());
-        }
+        System.out.println(player1.displayInfo());
+        System.out.println(player2.displayInfo());
 
         // Display Team Information
+        team.displayTeamInfo();
+        
+        // Optionally remove a player and demonstrate freeing up resources
+        team.removePlayer(player1);  // Assuming you have a method to remove players
+        System.out.println("After removing a player:");
         team.displayTeamInfo();
     }
 }
