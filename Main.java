@@ -20,17 +20,23 @@ public class Main {
         team2.addPlayer(player2);
         team2.addPlayer(player4);
 
-        // Update Player Stats
+        // Update Player Stats using encapsulated methods
         player1.updateStats(20);  // Update stats for player1
         player2.updateStats(5);   // Update stats for player2
         player3.updateStats(15);  // Update stats for player3
         player4.updateStats(10);  // Update stats for player4
 
-        // Display each player's information
+        // Display each player's information using encapsulated getter methods
         System.out.println(player1.displayInfo()); // Display player1 info
         System.out.println(player2.displayInfo()); // Display player2 info
         System.out.println(player3.displayInfo()); // Display player3 info
         System.out.println(player4.displayInfo()); // Display player4 info
+
+        // Demonstrate usage of setters by updating player details
+        player1.setName("Johnny Bravo");
+        player1.setPosition("Striker");
+        System.out.println("\nAfter updating player1's details:");
+        System.out.println(player1.displayInfo()); // Display updated player1 info
 
         // Display Team Information before removing a player
         System.out.println("\nBefore removing a player from The Warriors:");
@@ -50,7 +56,10 @@ public class Main {
         System.out.println("\nAfter removing a player from The Kings:");
         team2.displayTeamInfo();  // Display team2 info after removal
 
-        // Display total number of teams
+        // Display total number of teams using static method
         System.out.println("\nTotal number of teams: " + Team.getTotalTeams());
+
+        // Display total number of players using static method
+        System.out.println("Total number of players: " + Player.getTotalPlayers());
     }
 }
