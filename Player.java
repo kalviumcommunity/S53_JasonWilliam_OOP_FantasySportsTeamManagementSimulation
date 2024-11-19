@@ -1,62 +1,72 @@
 package S53_JasonWilliam_OOP_FantasySportsTeamManagementSimulation;
+import java.util.ArrayList;
 
-public class Player {
+// Abstract Class PlayerBase
+abstract class PlayerBase {
     private String name;
     private String position;
     private int stats;
-    private static int totalPlayers = 0; // Static variable to track total players
 
-    // Constructor
-    public Player(String name, String position) {
+    public PlayerBase(String name, String position) {
         this.name = name;
         this.position = position;
         this.stats = 0;
-        totalPlayers++; // Increment when a player is created
     }
 
+    // Abstract method to calculate performance rating (to be implemented by subclasses)
+    public abstract int calculatePerformance();
 
-    // Getter for 'name' (Accessor)
+    // Getter and Setter methods
     public String getName() {
         return name;
     }
 
-    // Setter for 'name' (Mutator)
     public void setName(String name) {
         this.name = name;
     }
 
-    // Getter for 'position' (Accessor)
     public String getPosition() {
         return position;
     }
 
-    // Setter for 'position' (Mutator)
     public void setPosition(String position) {
         this.position = position;
     }
 
-    // Getter for 'stats' (Accessor)
     public int getStats() {
         return stats;
     }
 
-    // Setter for 'stats' (Mutator)
-    public void setStats(int stats) {
-        this.stats = stats;
-    }
-
-    // Method to update stats
     public void updateStats(int points) {
         stats += points;
     }
 
-    // Method to display player info
+    // Display player info
     public String displayInfo() {
         return "Player: " + name + ", Position: " + position + ", Stats: " + stats;
     }
+}
 
-    // Static method to get total number of players
+// Concrete Class Player extending PlayerBase
+public class Player extends PlayerBase {
+    private static int totalPlayers = 0;
+
+    public Player(String name, String position) {
+        super(name, position);
+        totalPlayers++;
+    }
+
+    // Implement the abstract method
+    @Override
+    public int calculatePerformance() {
+        // Example calculation: Performance = Stats * 10
+        return getStats() * 10;
+    }
+
+    // Static method to get total players
     public static int getTotalPlayers() {
         return totalPlayers;
     }
 }
+
+
