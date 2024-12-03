@@ -2,6 +2,7 @@ package S53_JasonWilliam_OOP_FantasySportsTeamManagementSimulation;
 
 import java.util.ArrayList;
 
+// Team Class
 class Team {
     private String teamName;
     private ArrayList<PlayerBase> players;
@@ -40,4 +41,3 @@ class Team {
         return totalTeams;
     }
 }
-
