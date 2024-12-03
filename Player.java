@@ -1,4 +1,5 @@
 package S53_JasonWilliam_OOP_FantasySportsTeamManagementSimulation;
+
 import java.util.ArrayList;
 
 // Abstract Class PlayerBase
@@ -47,26 +48,28 @@ abstract class PlayerBase {
     }
 }
 
-// Concrete Class Player extending PlayerBase
-public class Player extends PlayerBase {
-    private static int totalPlayers = 0;
-
-    public Player(String name, String position) {
-        super(name, position);
-        totalPlayers++;
+// Concrete Class Striker extending PlayerBase
+class Striker extends PlayerBase {
+    public Striker(String name) {
+        super(name, "Striker");
     }
 
-    // Implement the abstract method
     @Override
     public int calculatePerformance() {
-        // Example calculation: Performance = Stats * 10
-        return getStats() * 10;
-    }
-
-    // Static method to get total players
-    public static int getTotalPlayers() {
-        return totalPlayers;
+        // Strikers' performance is based more on goals scored
+        return getStats() * 15;
     }
 }
 
+// Concrete Class Goalkeeper extending PlayerBase
+class Goalkeeper extends PlayerBase {
+    public Goalkeeper(String name) {
+        super(name, "Goalkeeper");
+    }
 
+    @Override
+    public int calculatePerformance() {
+        // Goalkeepers' performance is based on saves made
+        return getStats() * 20;
+    }
+}

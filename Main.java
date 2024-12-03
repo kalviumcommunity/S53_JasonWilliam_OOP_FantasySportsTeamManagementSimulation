@@ -8,10 +8,10 @@ public class Main {
         Team team2 = new Team("The Kings");
 
         // Create Players dynamically using the new keyword and add them to teams
-        Player player1 = new Player("John Doe", "Forward");
-        Player player2 = new Player("Jason William", "Goalkeeper");
-        Player player3 = new Player("David Smith", "Midfielder");
-        Player player4 = new Player("Michael Johnson", "Defender");
+        PlayerBase player1 = new Striker("John Doe");
+        PlayerBase player2 = new Goalkeeper("Jason William");
+        PlayerBase player3 = new Striker("David Smith");
+        PlayerBase player4 = new Goalkeeper("Michael Johnson");
 
         // Add two players to the first team
         team1.addPlayer(player1);
@@ -32,8 +32,7 @@ public class Main {
         team1.displayTeamInfo();
         team2.displayTeamInfo();
 
-        // Display total number of teams and players
+        // Display total number of teams
         System.out.println("\nTotal number of teams: " + Team.getTotalTeams());
-        System.out.println("Total number of players: " + Player.getTotalPlayers());
     }
 }
